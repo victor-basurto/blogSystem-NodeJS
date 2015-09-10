@@ -35,11 +35,12 @@ router.post('/add', function( req, res, next ) {
 
 	if( req.file ) {
 
-		console.log('uploading files');
+		console.log('Uploading Files');
 		
 
 		var mainImageOriginalName 	= req.file.originalname;
 		var mainImageName 			= req.file.fieldname;
+		var mainImageFileName		= req.file.filename;
 		var mainImageMime 			= req.file.mimetype;
 		var mainImagePath 			= req.file.path;
 		var mainImageSize 			= req.file.size;
@@ -76,7 +77,7 @@ router.post('/add', function( req, res, next ) {
 			'category': category,
 			'date': date,
 			'author': author,
-			'avatar': mainImageOriginalName
+			'avatar': mainImageFileName
 
 		}, function( err, post ) {
 			if ( err ) {
