@@ -49,7 +49,7 @@ router.post('/add', function( req, res, next ) {
 		console.log('Body: ' + mainImageOriginalName);
 	} else {
 		// if there's no image
-		var mainImageName = "victor.jpg";
+		var mainImageFileName = "noimage.jpg";
 
 	}
 	

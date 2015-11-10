@@ -3,6 +3,17 @@ var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 var router = express.Router();
 
+router.get('/show/:category', function(req, res, next) {
+	var db = req.db;
+	var post = db.get('posts');
+	post.find({category: req.params.category}, {}, function(err, posts) {
+		res.render('index', {
+			'title': req.params.category,
+			'posts': posts
+		});
+	});
+});
+
 /**
  * Get posts
  */
